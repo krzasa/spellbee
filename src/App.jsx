@@ -1,9 +1,10 @@
 import './App.css'
+import Home from './components/Pages/Home';
 
 function App() {
   return (
     <>
-      <h1>Spellbee</h1>
+      <Home />
     </>
   )
 }
