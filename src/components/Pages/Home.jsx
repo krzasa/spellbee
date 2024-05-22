@@ -5,7 +5,7 @@ const Home = () => {
     <>
       <Navbar />
       <main>
-        <img src="../../public/spellbee.svg" />
+        <img src="../../spellbee.svg" />
       </main>
     </>
   )

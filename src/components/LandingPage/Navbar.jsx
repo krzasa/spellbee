@@ -3,7 +3,7 @@ const Navbar = () => {
     <nav>
       <div id="nav-brand">
         <a href="/">
-          <img id="nav-logo" src="../../../public/spellbee.svg" alt="spellbee logo" />
+          <img id="nav-logo" src="../../../spellbee.svg" alt="spellbee logo" />
         </a>
         <h2>Spellbee</h2>
       </div>
