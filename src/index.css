@@ -75,3 +75,66 @@ main {
   padding-top: 70px;
   height: 400px;
 }
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  background-color: var(--color-btn-primary);
+  color: var(--color-dark-text);
+  padding: 5px;
+  border: 1px solid var(--color-btn-primary);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.score {
+  margin-left: auto; 
+  padding-right: 40px;
+}
+
+.score-counter {
+  font-weight: 500;
+}
+
+.score-number {
+  background-color: var(--color-accent); 
+  color: var(--color-light-secondary); 
+  padding: 5px 10px; 
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.instruction-text {
+  font-size: 1.2em;
+}
+
+.user-input {
+  text-align: center;
+  border: none;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #626262;
+  padding: 10px;
+  caret-color: var(--color-accent);
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.user-input:focus {
+  outline: none;
+}
+
+.message-container {
+  height: 50px;
+}
+
+.message {
+  font-weight: 500;
+  font-size: 1em;
+}
