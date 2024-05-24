@@ -18,14 +18,15 @@ const Play = () => {
     const fetchRandom = async () =>{
       const wordsPlay = await words.show()
       setPlay(wordsPlay.word)
+      selectRandomWord(wordsPlay);
     }
     fetchRandom()
-    selectRandomWord();
   }, []);
 
-  const selectRandomWord = () => {
+  const selectRandomWord = (play) => {
     const randomIndex = Math.floor(Math.random() * play.length);
-    setCurrentWord(play[randomIndex]);
+    setCurrentWord(play.word);
+    console.log(play.word);
     setUserInput("");
     setAttemptsLeft(3);
     setButtonDisabled(false);

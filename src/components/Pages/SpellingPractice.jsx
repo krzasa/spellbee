@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import textToSpeech from "../../services/textToSpeech.js";
 import Navbar from "../Common/Navbar.jsx";
-import * as practice from '../services/practice'
+import * as practice from '../../services/practice.js'
 
 const SpellingPractice = () => {
   const [practiceList, setPracticeList] = useState([])
@@ -11,20 +11,20 @@ const SpellingPractice = () => {
   const [attemptsLeft, setAttemptsLeft] = useState(3);
   const [message, setMessage] = useState("");
 
-  
   // Randomly select a word when the component mounts
   useEffect(() => {
     const fetchWords = async () =>{
       const words = await practice.show()
       setPracticeList(words)
+      selectRandomWord(words);
     }
     fetchWords()
-    selectRandomWord();
   }, []);
 
-  const selectRandomWord = () => {
+  const selectRandomWord = (practiceList) => {
     const randomIndex = Math.floor(Math.random() * practiceList.length);
     setCurrentWord(practiceList[randomIndex].word);
+    console.log(currentWord);
     setUserInput("");
     setAttemptsLeft(3);
     setButtonDisabled(false);
