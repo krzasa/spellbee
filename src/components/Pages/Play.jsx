@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import textToSpeech from "../../services/textToSpeech.js";
 import Navbar from "../Common/Navbar.jsx";
+import * as words from "../../services/words.js"
 
 const Play = () => {
+  const [play, setPlay] = useState([])
   const [currentWord, setCurrentWord] = useState("");
   const [userInput, setUserInput] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
@@ -10,21 +12,20 @@ const Play = () => {
   const [points, setPoints] = useState(0);
   const [message, setMessage] = useState("");
 
-  const words = [
-    { word: "Ambiguous" },
-    { word: "Encyclopedia" },
-    { word: "Harbor" },
-    { word: "Decision" },
-    { word: "Tertiary" },
-  ];
+ 
   // Randomly select a word when the component mounts
   useEffect(() => {
+    const fetchRandom = async () =>{
+      const wordsPlay = await words.show()
+      setPlay(wordsPlay.word)
+    }
+    fetchRandom()
     selectRandomWord();
   }, []);
 
   const selectRandomWord = () => {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    setCurrentWord(words[randomIndex].word);
+    const randomIndex = Math.floor(Math.random() * play.length);
+    setCurrentWord(play[randomIndex]);
     setUserInput("");
     setAttemptsLeft(3);
     setButtonDisabled(false);
