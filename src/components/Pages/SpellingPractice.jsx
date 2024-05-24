@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import textToSpeech from "../../services/textToSpeech.js";
+import Navbar from "../Common/Navbar.jsx";
 
 const SpellingPractice = () => {
   const [currentWord, setCurrentWord] = useState("");
@@ -63,30 +64,33 @@ const SpellingPractice = () => {
   }
 
   return (
-    <div className="center">
-      <div className="message-container">
-        <h2 className="message">{message}</h2>
+    <>
+      <Navbar />
+      <div className="center">
+        <div className="message-container">
+          <h2 className="message">{message}</h2>
+        </div>
+        <div className="score">
+          <h3 className="score-counter">Score <span className="score-number">{points}</span></h3>
+        </div>
+        <p className="instruction-text">Listen and spell the word</p>
+        <button className="btn" disabled={isButtonDisabled} onClick={handleSpeak}>
+          Speak Word ({attemptsLeft} attempts left)
+        </button>
+        <input
+          className="user-input"
+          autoFocus
+          type="text"
+          placeholder="Type the word"
+          value={userInput}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+        />
+        <button className="btn" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
-      <div className="score">
-        <h3 className="score-counter">Score <span className="score-number">{points}</span></h3>
-      </div>
-      <p className="instruction-text">Listen and spell the word</p>
-      <button className="btn" disabled={isButtonDisabled} onClick={handleSpeak}>
-        Speak Word ({attemptsLeft} attempts left)
-      </button>
-      <input
-        className="user-input"
-        autoFocus
-        type="text"
-        placeholder="Type the word"
-        value={userInput}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-      />
-      <button className="btn" onClick={handleSubmit}>
-        Submit
-      </button>
-    </div>
+    </>
   );
 };
 
