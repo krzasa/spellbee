@@ -4,29 +4,27 @@ import Navbar from "../Common/Navbar.jsx";
 import * as words from "../../services/words.js"
 
 const Play = () => {
-  const [play, setPlay] = useState([])
+  const [playList, setPlayList] = useState([]);
   const [currentWord, setCurrentWord] = useState("");
   const [userInput, setUserInput] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [attemptsLeft, setAttemptsLeft] = useState(3);
   const [points, setPoints] = useState(0);
   const [message, setMessage] = useState("");
-
  
-  // Randomly select a word when the component mounts
   useEffect(() => {
     const fetchRandom = async () =>{
-      const wordsPlay = await words.show()
-      setPlay(wordsPlay.word)
-      selectRandomWord(wordsPlay);
+      const wordsPlay = await words.show();
+      setPlayList(wordsPlay);
+      selectRandomWord();
     }
-    fetchRandom()
+    fetchRandom();
   }, []);
 
-  const selectRandomWord = (play) => {
-    const randomIndex = Math.floor(Math.random() * play.length);
-    setCurrentWord(play.word);
-    console.log(play.word);
+  // Randomly select a word and resets the state of input, attemptsLeft, message and enables the speak work button
+  const selectRandomWord = async () => {
+    setCurrentWord(playList.word);
+    console.log(playList.word);
     setUserInput("");
     setAttemptsLeft(3);
     setButtonDisabled(false);

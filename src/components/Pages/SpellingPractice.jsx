@@ -4,27 +4,26 @@ import Navbar from "../Common/Navbar.jsx";
 import * as practice from '../../services/practice.js'
 
 const SpellingPractice = () => {
-  const [practiceList, setPracticeList] = useState([])
+  const [practiceList, setPracticeList] = useState([]);
   const [currentWord, setCurrentWord] = useState("");
   const [userInput, setUserInput] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [attemptsLeft, setAttemptsLeft] = useState(3);
   const [message, setMessage] = useState("");
 
-  // Randomly select a word when the component mounts
   useEffect(() => {
     const fetchWords = async () =>{
-      const words = await practice.show()
-      setPracticeList(words)
+      const words = await practice.show();
+      setPracticeList(words);
       selectRandomWord(words);
     }
     fetchWords()
   }, []);
 
+  // Randomly select a word and resets the state of input, attemptsLeft, message and enables the speak work button
   const selectRandomWord = (practiceList) => {
     const randomIndex = Math.floor(Math.random() * practiceList.length);
     setCurrentWord(practiceList[randomIndex].word);
-    console.log(currentWord);
     setUserInput("");
     setAttemptsLeft(3);
     setButtonDisabled(false);
@@ -49,10 +48,10 @@ const SpellingPractice = () => {
     if (userInput.trim().toLowerCase() === currentWord.toLowerCase()) {
       setMessage("Correct! Moving to the next word.");
     } else {
-      setMessage("Incorrect! No points awarded. Moving to the next word.");
+      setMessage("Incorrect! Moving to the next word.");
     }
     setTimeout(() => {
-      selectRandomWord();
+      selectRandomWord(practiceList);
     }, 1500);
   };
 
