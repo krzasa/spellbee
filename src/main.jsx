@@ -5,6 +5,7 @@ import App from './routes/App';
 import ErrorPage from './error-page';
 import SpellingPractice from './components/Pages/SpellingPractice';
 import About from './components/Pages/About';
+import Play from './components/Pages/Play';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "play",
-    element: <h1>Play</h1>
+    element: <Play />
   }
 ])
 

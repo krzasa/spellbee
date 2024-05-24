@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import textToSpeech from "../../services/textToSpeech.js";
 import Navbar from "../Common/Navbar.jsx";
 
-const SpellingPractice = () => {
+const Play = () => {
   const [currentWord, setCurrentWord] = useState("");
   const [userInput, setUserInput] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [attemptsLeft, setAttemptsLeft] = useState(3);
+  const [points, setPoints] = useState(0);
   const [message, setMessage] = useState("");
 
   const words = [
@@ -46,6 +47,7 @@ const SpellingPractice = () => {
 
   const handleSubmit = () => {
     if (userInput.trim().toLowerCase() === currentWord.toLowerCase()) {
+      setPoints(points + 1);
       setMessage("Correct! Moving to the next word.");
     } else {
       setMessage("Incorrect! No points awarded. Moving to the next word.");
@@ -69,6 +71,9 @@ const SpellingPractice = () => {
           <div className="message-container">
             <h2 className="message">{message}</h2>
           </div>
+          <div className="score">
+            <h3 className="score-counter">Score <span className="score-number">{points}</span></h3>
+          </div>
           <p className="instruction-text">Listen and spell the word</p>
           <button className="btn" disabled={isButtonDisabled} onClick={handleSpeak}>
             Speak Word ({attemptsLeft} attempts left)
@@ -91,4 +96,4 @@ const SpellingPractice = () => {
   );
 };
 
-export default SpellingPractice;
+export default Play;
