@@ -28,6 +28,8 @@ a:hover {
   border-bottom: 3px solid var(--color-accent);
 }
 
+/* NAVIGATION */
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -82,6 +84,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 100vw;
 }
 
 .btn {
@@ -92,6 +95,20 @@ main {
   border-radius: 5px;
   cursor: pointer;
   margin: 10px;
+}
+
+/* HOME */
+#home {
+  height: 100vh;
+}
+
+/* PRACTICE */
+
+#practice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .score {
@@ -137,4 +154,73 @@ main {
 .message {
   font-weight: 500;
   font-size: 1em;
+}
+
+/* ABOUT */
+
+#about {
+  background-color: var(--color-accent);
+  color: #fff4e0;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+#about-heading {
+  align-self: start;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-weight: 500;
+}
+
+.about-subheading {
+  align-self: start;
+  padding: 40px 0 20px 20px;
+}
+
+.about-desc {
+  padding: 0 20px;
+}
+
+.bio {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+.bio-desc {
+  width: 300px;
+}
+
+.avatar, .avatar-2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+  border: 1px solid #626262;
+  margin-right: 20px;
+}
+
+.avatar {
+  background-image: url('../../../portrait.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.avatar-2 {
+  background-image: url('../../portrait-2.jpeg');
+  background-position: center;
+}
+
+@media (min-width: 1400px) {
+  #about {
+    padding: 80px 300px;
+  }
+}
+
+@media (max-width: 1400px) {
+  #about {
+    padding: 80px 50px;
+  }
 }

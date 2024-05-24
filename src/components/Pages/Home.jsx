@@ -1,10 +1,11 @@
-import Navbar from '../LandingPage/Navbar';
+import Navbar from '../Common/Navbar';
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="home">
         <img src="../../spellbee.svg" />
       </main>
     </>
