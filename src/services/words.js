@@ -7,25 +7,13 @@ const options = {
 	}
 };
 const show = async () => {
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-	console.log(result);
-    //  {
-//   word: 'pipe clamp',
-//   results: [
-//     {
-//       definition: 'a clamp for holding pipe that is to be cut or threaded',
-//       partOfSpeech: 'noun',
-//       synonyms: [Array],
-//       typeOf: [Array]
-//     }
-//   ]
-// }
-  return result;
-} catch (error) {
-	console.error(error);
-}
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 };
-// show();
+
 export { show } ;
