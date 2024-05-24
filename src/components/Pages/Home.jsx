@@ -5,11 +5,8 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="home">
         <img src="../../spellbee.svg" />
-        <div id="practice-container">
-          <Outlet />
-        </div>
       </main>
     </>
   )

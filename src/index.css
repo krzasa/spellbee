@@ -84,6 +84,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 100vw;
 }
 
 .btn {
@@ -96,7 +97,19 @@ main {
   margin: 10px;
 }
 
+/* HOME */
+#home {
+  height: 100vh;
+}
+
 /* PRACTICE */
+
+#practice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
 .score {
   margin-left: auto; 
