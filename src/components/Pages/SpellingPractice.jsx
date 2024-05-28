@@ -74,10 +74,10 @@ const SpellingPractice = () => {
             Speak Word ({attemptsLeft} attempts left)
           </button>
           <input
-            autocomplete="off" 
-            autocorrect="off" 
-            autocapitalize="off" 
-            spellcheck="false"
+            autoComplete="off" 
+            autoCorrect="off" 
+            autoCapitalize="off" 
+            spellCheck="false"
             className="user-input"
             autoFocus
             type="text"
