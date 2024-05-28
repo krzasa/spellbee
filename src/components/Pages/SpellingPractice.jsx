@@ -75,10 +75,6 @@ const SpellingPractice = () => {
           </button>
           <input
             className="user-input"
-            autocomplete="off" 
-            autocorrect="off" 
-            autocapitalize="off" 
-            spellcheck="false"
             autoFocus
             type="text"
             placeholder="Type the word"

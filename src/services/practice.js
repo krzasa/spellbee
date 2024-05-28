@@ -1,4 +1,4 @@
-const BASE_URL = `http://18.188.210.18:3002/words`;
+const BASE_URL = `http://localhost:3002/words`;
 
 const show = async () => {
     try {

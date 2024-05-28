@@ -1,4 +1,4 @@
-const url = 'http://wordsapiv1.p.rapidapi.com/words/?random=true';
+const url = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
 const options = {
 	method: 'GET',
 	headers: {
