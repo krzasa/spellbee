@@ -12,20 +12,25 @@ const Play = () => {
   const [points, setPoints] = useState(0);
   const [message, setMessage] = useState("");
  
+  const fetchRandom = async () =>{
+    const wordsPlay = await words.show();
+    console.log(wordsPlay);
+    setPlayList(wordsPlay);
+    console.log("19: " + wordsPlay.word);
+    selectRandomWord(wordsPlay);
+    console.log("22: " + wordsPlay.word);
+
+  }
+
   useEffect(() => {
-    const fetchRandom = async () =>{
-      const wordsPlay = await words.show();
-      setPlayList(wordsPlay);
-      selectRandomWord();
-    }
-    
     fetchRandom();
   }, []);
 
   // Randomly select a word and resets the state of input, attemptsLeft, message and enables the speak work button
-  const selectRandomWord = async () => {
-    setCurrentWord(playList.word);
-    console.log(playList.word);
+  const selectRandomWord = async (wordsPlay) => {
+    setCurrentWord(wordsPlay.word);
+    console.log(wordsPlay);
+    console.log("32: " + currentWord);
     setUserInput("");
     setAttemptsLeft(3);
     setButtonDisabled(false);
@@ -54,7 +59,7 @@ const Play = () => {
       setMessage("Incorrect! No points awarded. Moving to the next word.");
     }
     setTimeout(() => {
-      selectRandomWord();
+      fetchRandom();
     }, 1500);
   };
 
