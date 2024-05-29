@@ -19,3 +19,10 @@ This application also has a WordAPI associated with it built using Node.js and E
 ### Planned Features
 - Leaderboard
 - Implementing backend JWT authentication/login
+
+### Insights
+- Functions that will be used multiple times should be scoped globally 
+  - Always call functions in useEffect rather than defining functions within the useEffect scope
+- Always test for edge cases
+  - Utilize console logging to see if you're receiving the appopriate data
+- Always focus on having readable and easy to follow variable names
