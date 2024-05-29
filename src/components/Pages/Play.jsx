@@ -18,6 +18,7 @@ const Play = () => {
       setPlayList(wordsPlay);
       selectRandomWord();
     }
+    
     fetchRandom();
   }, []);
 
